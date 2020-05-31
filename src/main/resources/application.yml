@@ -1,0 +1,31 @@
+# Configuration file
+# key = value jdbc:h2:mem:testdb
+"%dev":
+  quarkus:
+    datasource:
+      db-kind: mysql
+      username: root
+      password: abc@123
+      jdbc:
+        url: jdbc:mysql://localhost:3306/MarketCode
+    hibernate-orm:
+      dialect:
+        ~: org.hibernate.dialect.MySQL8Dialect
+      database:
+        generation:
+          ~: update
+
+"%test":
+  quarkus:
+    datasource:
+      db-kind: h2
+      username: root
+      password: abc@123
+      jdbc:
+        url: jdbc:h2:~/test
+    hibernate-orm:
+      dialect:
+        ~: org.hibernate.dialect.H2Dialect
+      database:
+        generation:
+          ~: drop-and-create
